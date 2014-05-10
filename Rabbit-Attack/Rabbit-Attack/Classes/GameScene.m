@@ -19,7 +19,7 @@
 //MACROS
 #define BACKGROUND_SPEED 0.01f
 #define ANIMATION_SPEED_MAIN_HERO 0.15f
-#define MAX_ENEMY_NUMBER 10
+#define MAX_ENEMY_NUMBER 15
 #define ENEMY_GENERATION_SPEED 5
 
 
@@ -29,6 +29,7 @@
     CCSprite *main_hero;
     CCSprite *main_background_1;
     CCSprite *main_background_2;
+    CCPhysicsNode *_physicsWorld;
     NSMutableArray *enemyArray;
     int enemy_number;
     float last_time_click;
@@ -55,6 +56,13 @@
     enemy_number = 0;
     last_time_click = 0.0f;
     
+    _physicsWorld = [CCPhysicsNode node];
+    _physicsWorld.gravity = ccp(0,0);
+    _physicsWorld.debugDraw = YES;
+    _physicsWorld.collisionDelegate = self;
+    [self addChild:_physicsWorld];
+    
+    
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
     
@@ -63,12 +71,12 @@
     main_background_1.anchorPoint = ccp(0,0);
     main_background_1.position = ccp(10,10);
     main_background_1.scale = 0.3f;
-    [self addChild:main_background_1];
+    [_physicsWorld addChild:main_background_1];
     main_background_2 = [CCSprite spriteWithImageNamed:@"main_background.png"];
     main_background_2.anchorPoint = ccp(0,0);
     main_background_2.position = ccp([main_background_1 boundingBox].size.width-1,10);
     main_background_2.scale = 0.3f;
-    [self addChild:main_background_2];
+    [_physicsWorld addChild:main_background_2];
     
     [self schedule:@selector(backgroundScroll:) interval:BACKGROUND_SPEED];
     [self schedule:@selector(enemySpawner:) interval:ENEMY_GENERATION_SPEED];
@@ -106,11 +114,15 @@
     CCActionAnimate *animationAction = [CCActionAnimate actionWithAnimation:walkAnim];
     CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
     
+    main_hero.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, main_hero.contentSize} cornerRadius:0]; // 1
+    main_hero.physicsBody.collisionGroup = @"playerGroup"; // 2
+    [_physicsWorld addChild:main_hero];
+    //Adding the Sprite to the Scene
+//    [self addChild:main_hero];
     //Animation continuously repeating
     [main_hero runAction:repeatingAnimation];
     
-    //Adding the Sprite to the Scene
-    [self addChild:main_hero];
+    
     
     //END MAIN HERO
     //***************************
@@ -135,6 +147,7 @@
     
     //END ENEMY
     //***************************
+    
 
     // done
 	return self;
@@ -188,7 +201,8 @@
             CCLOG(@"Touch Right Side @ %@",NSStringFromCGPoint(touchLoc));
             Missile *missile = [[Missile alloc] initWithType:MissileTypeThree];
             missile.position = ccp(main_hero.position.x,main_hero.position.y);
-            [self addChild:missile];
+//            [self addChild:missile];
+            [_physicsWorld addChild:missile];
             
             [missile animate];
             [missile move:main_hero.position.y ];
@@ -239,10 +253,13 @@
     Enemy *new_enemy;
     new_enemy = [enemyArray objectAtIndex:enemy_number];
     new_enemy.position = ccp(self.contentSize.width+300,self.contentSize.height/2);
-    [self addChild:new_enemy];
+//    [self addChild:new_enemy];
+    [_physicsWorld addChild:new_enemy];
 
     [new_enemy animate];
     [new_enemy move:main_hero.position.y ];
+    
+    
     
     enemy_number++;
     if(enemy_number >= MAX_ENEMY_NUMBER) {

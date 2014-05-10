@@ -36,6 +36,9 @@
     self->missileType = type;
     self.scale = 0.125;
     
+    self.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, self.contentSize} cornerRadius:0]; // 1
+    self.physicsBody.collisionGroup = @"enemyGroup"; // 2
+    
     return self;
 }
 
