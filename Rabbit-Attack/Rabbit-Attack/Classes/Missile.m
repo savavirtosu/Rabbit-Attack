@@ -60,7 +60,7 @@
             
             //The sprite animation
             NSMutableArray *flyAnimFrames = [NSMutableArray array];
-            for(int i = 3; i <= 4; ++i)
+            for(int i = 3; i <= 5; ++i)
             {
                 [flyAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"missile%d.png", i]]];
             }

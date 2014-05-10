@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B7D6E1F191E220F00592CA9 /* main_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E1D191E220F00592CA9 /* main_background.png */; };
 		6B7D6E20191E220F00592CA9 /* main_hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E1E191E220F00592CA9 /* main_hero.png */; };
 		6B7D6E23191E3C0900592CA9 /* main_hero_old.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E21191E3C0900592CA9 /* main_hero_old.png */; };
 		6B7D6E24191E3C0900592CA9 /* main_hero.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E22191E3C0900592CA9 /* main_hero.plist */; };
@@ -221,6 +220,11 @@
 		6BF85E75191E625B00CFD475 /* Missile.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF85E74191E625B00CFD475 /* Missile.m */; };
 		6BF85E78191E638F00CFD475 /* missiles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E76191E638F00CFD475 /* missiles.plist */; };
 		6BF85E79191E638F00CFD475 /* missiles.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E77191E638F00CFD475 /* missiles.png */; };
+		6BF85E7B191E823A00CFD475 /* bonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E7A191E823A00CFD475 /* bonus.png */; };
+		6BF85E7E191E839C00CFD475 /* dstar.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E7C191E839C00CFD475 /* dstar.plist */; };
+		6BF85E7F191E839C00CFD475 /* dstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E7D191E839C00CFD475 /* dstar.png */; };
+		6BF85E82191E87B900CFD475 /* main_background_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E80191E87B900CFD475 /* main_background_1.png */; };
+		6BF85E83191E87B900CFD475 /* main_background_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E81191E87B900CFD475 /* main_background_2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,7 +238,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6B7D6E1D191E220F00592CA9 /* main_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background.png; sourceTree = "<group>"; };
 		6B7D6E1E191E220F00592CA9 /* main_hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_hero.png; sourceTree = "<group>"; };
 		6B7D6E21191E3C0900592CA9 /* main_hero_old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_hero_old.png; sourceTree = "<group>"; };
 		6B7D6E22191E3C0900592CA9 /* main_hero.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = main_hero.plist; sourceTree = "<group>"; };
@@ -673,6 +676,11 @@
 		6BF85E74191E625B00CFD475 /* Missile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Missile.m; path = Classes/Missile.m; sourceTree = "<group>"; };
 		6BF85E76191E638F00CFD475 /* missiles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = missiles.plist; sourceTree = "<group>"; };
 		6BF85E77191E638F00CFD475 /* missiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missiles.png; sourceTree = "<group>"; };
+		6BF85E7A191E823A00CFD475 /* bonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bonus.png; sourceTree = "<group>"; };
+		6BF85E7C191E839C00CFD475 /* dstar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dstar.plist; sourceTree = "<group>"; };
+		6BF85E7D191E839C00CFD475 /* dstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dstar.png; sourceTree = "<group>"; };
+		6BF85E80191E87B900CFD475 /* main_background_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background_1.png; sourceTree = "<group>"; };
+		6BF85E81191E87B900CFD475 /* main_background_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background_2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -699,12 +707,16 @@
 		6B7D6E1C191E220F00592CA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6BF85E80191E87B900CFD475 /* main_background_1.png */,
+				6BF85E81191E87B900CFD475 /* main_background_2.png */,
+				6BF85E7C191E839C00CFD475 /* dstar.plist */,
+				6BF85E7D191E839C00CFD475 /* dstar.png */,
+				6BF85E7A191E823A00CFD475 /* bonus.png */,
 				6BF85E76191E638F00CFD475 /* missiles.plist */,
 				6BF85E77191E638F00CFD475 /* missiles.png */,
 				6BF85E71191E4A4D00CFD475 /* astro.png */,
 				6B7D6E21191E3C0900592CA9 /* main_hero_old.png */,
 				6B7D6E22191E3C0900592CA9 /* main_hero.plist */,
-				6B7D6E1D191E220F00592CA9 /* main_background.png */,
 				6B7D6E1E191E220F00592CA9 /* main_hero.png */,
 			);
 			name = Images;
@@ -1661,8 +1673,10 @@
 				6BCAE47A191E1340008B4D1B /* Default@2x.png in Resources */,
 				6BCAE48D191E1340008B4D1B /* Icon-120.png in Resources */,
 				6BCAE691191E1342008B4D1B /* LICENSE_CCBReader.txt in Resources */,
+				6BF85E7B191E823A00CFD475 /* bonus.png in Resources */,
 				6BCAE483191E1340008B4D1B /* Icon@2x.png in Resources */,
 				6BCAE495191E1340008B4D1B /* Icon-Small@2x.png in Resources */,
+				6BF85E7F191E839C00CFD475 /* dstar.png in Resources */,
 				6BCAE487191E1340008B4D1B /* Icon-72@2x.png in Resources */,
 				6B7D6E20191E220F00592CA9 /* main_hero.png in Resources */,
 				6BCAE478191E1340008B4D1B /* Default.png in Resources */,
@@ -1675,11 +1689,13 @@
 				6BCAE67A191E1342008B4D1B /* LICENSE_Kazmath.txt in Resources */,
 				6BCAE485191E1340008B4D1B /* Icon-72.png in Resources */,
 				6BCAE5D3191E1341008B4D1B /* LICENSE_cocos2d.txt in Resources */,
+				6BF85E7E191E839C00CFD475 /* dstar.plist in Resources */,
 				6BCAE47C191E1340008B4D1B /* Default-568h@2x.png in Resources */,
 				6BCAE49C191E1340008B4D1B /* iTunesArtwork in Resources */,
 				6BCAE497191E1340008B4D1B /* Icon-Spotlight-iOS7.png in Resources */,
-				6B7D6E1F191E220F00592CA9 /* main_background.png in Resources */,
 				6BCAE48B191E1340008B4D1B /* Icon-76@2x.png in Resources */,
+				6BF85E83191E87B900CFD475 /* main_background_2.png in Resources */,
+				6BF85E82191E87B900CFD475 /* main_background_1.png in Resources */,
 				6BF85E78191E638F00CFD475 /* missiles.plist in Resources */,
 				6BCAE6FF191E1342008B4D1B /* LICENSE_Chipmunk.txt in Resources */,
 				6BCAE499191E1340008B4D1B /* Icon-Spotlight-iOS7@2x.png in Resources */,
