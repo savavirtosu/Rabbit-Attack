@@ -15,8 +15,11 @@ typedef enum {
 } EnemyType;
 
 @interface Enemy : CCSprite {
+    EnemyType enemyType;
 }
 
 -(id)initWithType:(EnemyType)type;
+-(void)animate;
+-(void)move:(float)targetPostion;
 
 @end

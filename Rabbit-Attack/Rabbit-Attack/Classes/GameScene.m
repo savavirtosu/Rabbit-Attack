@@ -219,12 +219,13 @@
 - (void)enemySpawner:(CCTime)dt{
     CCLOG(@"Spawner @ %f",dt);
     CCLOG(@"Enemy @ %i",enemy_number);
-    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:5.0f position:ccp(-100,main_hero.position.y)];
     Enemy *new_enemy;
     new_enemy = [enemyArray objectAtIndex:enemy_number];
     new_enemy.position = ccp(self.contentSize.width+300,self.contentSize.height/2);
     [self addChild:new_enemy];
-    [new_enemy runAction:actionMove];
+
+    [new_enemy animate];
+    [new_enemy move:main_hero.position.y ];
     
     enemy_number++;
     if(enemy_number >= MAX_ENEMY_NUMBER) {

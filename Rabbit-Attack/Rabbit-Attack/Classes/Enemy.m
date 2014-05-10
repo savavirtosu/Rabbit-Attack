@@ -7,12 +7,12 @@
 //
 
 #import "Enemy.h"
+#import "CCAction.h"
 
 
 @implementation Enemy
 
 -(id) initWithType:(EnemyType)type {
-
     
     
     switch (type) {
@@ -29,9 +29,34 @@
             break;
     }
     
+    self->enemyType = type;
+    
     self.scale = 0.125;
     
     return self;
+}
+
+-(void) animate {
+    switch (enemyType) {
+        case EnemyTypeMeteor:
+            //            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
+            [self runAction:[CCActionRepeatForever actionWithAction:[CCActionRotateBy actionWithDuration:0.1 angle:10]]];
+            break;
+        case EnemyTypeAstro:
+            //            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
+            [self runAction:[CCActionRepeatForever actionWithAction:[CCActionRotateBy actionWithDuration:0.1 angle:10]]];
+            break;
+            
+        default:
+            break;
+    }
+
+    
+}
+
+-(void) move:(float)targetPostion {
+    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:5.0f position:ccp(-100,targetPostion)];
+    [self runAction:actionMove];
 }
 
 @end
