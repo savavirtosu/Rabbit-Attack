@@ -16,7 +16,7 @@
 // -----------------------------------------------------------------------
 //MACROS
 #define BACKGROUND_SPEED 0.01f
-#define ANIMATION_SPEED_MAIN_HERO 0.1f
+#define ANIMATION_SPEED_MAIN_HERO 0.15f
 
 
 
@@ -52,12 +52,12 @@
     main_background_1 = [CCSprite spriteWithImageNamed:@"main_background.png"];
     main_background_1.anchorPoint = ccp(0,0);
     main_background_1.position = ccp(10,10);
-    main_background_1.scale = 0.25f;
+    main_background_1.scale = 0.3f;
     [self addChild:main_background_1];
     main_background_2 = [CCSprite spriteWithImageNamed:@"main_background.png"];
     main_background_2.anchorPoint = ccp(0,0);
     main_background_2.position = ccp([main_background_1 boundingBox].size.width-1,10);
-    main_background_2.scale = 0.25f;
+    main_background_2.scale = 0.3f;
     [self addChild:main_background_2];
     
     [self schedule:@selector(backgroundScroll:) interval:BACKGROUND_SPEED];
@@ -74,7 +74,7 @@
     
     //The sprite animation
     NSMutableArray *walkAnimFrames = [NSMutableArray array];
-    for(int i = 1; i <= 5; ++i)
+    for(int i = 1; i <= 4; ++i)
     {
         [walkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"%d.png", i]]];
     }
@@ -140,11 +140,16 @@
     CGPoint touchLoc = [touch locationInNode:self];
     
     // Log touch location
-    CCLOG(@"Touch @ %@",NSStringFromCGPoint(touchLoc));
+//    CCLOG(@"Touch @ %@",NSStringFromCGPoint(touchLoc));
     
-//    if(touchLoc.x > self.contentSize.width/2) {
-//        CCLOG(@"Touch @ %@",NSStringFromCGPoint(touchLoc));
-//    }
+    if(touchLoc.x > self.contentSize.width/1.5f) {
+        CCLOG(@"Touch Right Side @ %@",NSStringFromCGPoint(touchLoc));
+    }
+    if(touchLoc.x <= self.contentSize.width/1.5f) {
+        CCLOG(@"Touch Left Side @ %@",NSStringFromCGPoint(touchLoc));
+        CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:1.0f position:touchLoc];
+        [main_hero runAction:actionMove];
+    }
     
     
     // Move our sprite to touch location

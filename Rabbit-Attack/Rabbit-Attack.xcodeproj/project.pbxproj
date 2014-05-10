@@ -216,6 +216,7 @@
 		6BCAE707191E1342008B4D1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAE706191E1342008B4D1B /* AppDelegate.m */; };
 		6BCAE70A191E1342008B4D1B /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAE709191E1342008B4D1B /* GameScene.m */; };
 		6BCAE70D191E1342008B4D1B /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAE70C191E1342008B4D1B /* IntroScene.m */; };
+		6BF85E70191E456900CFD475 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF85E6F191E456900CFD475 /* Enemy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -661,6 +662,8 @@
 		6BCAE709191E1342008B4D1B /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GameScene.m; path = Classes/GameScene.m; sourceTree = "<group>"; };
 		6BCAE70B191E1342008B4D1B /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		6BCAE70C191E1342008B4D1B /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
+		6BF85E6E191E456900CFD475 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = Classes/Enemy.h; sourceTree = "<group>"; };
+		6BF85E6F191E456900CFD475 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Enemy.m; path = Classes/Enemy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1567,6 +1570,8 @@
 				6BCAE709191E1342008B4D1B /* GameScene.m */,
 				6BCAE70B191E1342008B4D1B /* IntroScene.h */,
 				6BCAE70C191E1342008B4D1B /* IntroScene.m */,
+				6BF85E6E191E456900CFD475 /* Enemy.h */,
+				6BF85E6F191E456900CFD475 /* Enemy.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1798,6 +1803,7 @@
 				6BCAE707191E1342008B4D1B /* AppDelegate.m in Sources */,
 				6BCAE4D7191E1341008B4D1B /* CCDrawingPrimitives.m in Sources */,
 				6BCAE5C8191E1341008B4D1B /* TGAlib.m in Sources */,
+				6BF85E70191E456900CFD475 /* Enemy.m in Sources */,
 				6BCAE594191E1341008B4D1B /* UITouch+CC.m in Sources */,
 				6BCAE672191E1342008B4D1B /* utility.c in Sources */,
 				6BCAE5D1191E1341008B4D1B /* ZipUtils.m in Sources */,
