@@ -9,18 +9,19 @@
 
 #import "GameScene.h"
 #import "IntroScene.h"
+#import "CCAnimation.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - GameScene
 // -----------------------------------------------------------------------
 //MACROS
 #define BACKGROUND_SPEED 0.01f
+#define ANIMATION_SPEED_MAIN_HERO 0.1f
 
 
 
 @implementation GameScene
 {
-    CCSprite *_sprite;
     CCSprite *main_hero;
     CCSprite *main_background_1;
     CCSprite *main_background_2;
@@ -61,25 +62,6 @@
     
     [self schedule:@selector(backgroundScroll:) interval:BACKGROUND_SPEED];
     
-    // Add a sprite
-//    _sprite = [CCSprite spriteWithImageNamed:@"main_hero.png"];
-//    _sprite.scale = 0.25f;
-//    _sprite.position  = ccp(self.contentSize.width/2,self.contentSize.height/2);
-//    [self addChild:_sprite];
-    
-    //checking memory 
-//    for (int i = 0; i<500;i++) {
-//        CCSprite *sprite = [CCSprite spriteWithImageNamed:@"2.png"];
-//        sprite.position  = ccp(i,i);
-//        sprite.scale = 0.25f;
-//        [self addChild:sprite];
-//    }
-    
-    
-    // Animate sprite with action
-//    CCActionRotateBy* actionSpin = [CCActionRotateBy actionWithDuration:1.5f angle:360];
-//    [_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
-    
     // Create a back button
     CCButton *backButton = [CCButton buttonWithTitle:@"[ Exit to Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
     backButton.positionType = CCPositionTypeNormalized;
@@ -87,32 +69,34 @@
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
     
-//    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"main_hero.png"];
-//    
-//    //The sprite animation
-//    NSMutableArray *walkAnimFrames = [NSMutableArray array];
-//    for(int i = 1; i <= 5; ++i)
-//    {
-//        [walkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"main_hero%d.png", i]]];
-//    }
-//    CCAnimation *walkAnim = [CCAnimation
-//                             animationWithSpriteFrames:walkAnimFrames delay:0.1f]; //Speed in which the frames will go at
-//    
-//    //Adding png to sprite
-//    main_hero = [CCSprite spriteWithImageNamed:@"main_hero.png"];
-//    
-//    //Positioning the sprite
-//    main_hero.position  = ccp(self.contentSize.width/2,self.contentSize.height/2);
-//    
-//    //Repeating the sprite animation
-//    CCActionAnimate *animationAction = [CCActionAnimate actionWithAnimation:walkAnim];
-//    CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
-//    
-//    //Animation continuously repeating
-//    [main_hero runAction:repeatingAnimation];
-//    
-//    //Adding the Sprite to the Scene
-//    [self addChild:main_hero];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"main_hero.plist"];
+    
+    //The sprite animation
+    NSMutableArray *walkAnimFrames = [NSMutableArray array];
+    for(int i = 1; i <= 5; ++i)
+    {
+        [walkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"%d.png", i]]];
+    }
+    CCAnimation *walkAnim = [CCAnimation
+                             animationWithSpriteFrames:walkAnimFrames delay:ANIMATION_SPEED_MAIN_HERO]; //Speed in which the frames will go at
+    
+    //Adding png to sprite
+    main_hero = [CCSprite spriteWithImageNamed:@"1.png"];
+    
+    //Positioning the sprite
+    main_hero.position  = ccp(self.contentSize.width/2,self.contentSize.height/2);
+    main_hero.scale = 0.125;
+    
+    //Repeating the sprite animation
+    CCActionAnimate *animationAction = [CCActionAnimate actionWithAnimation:walkAnim];
+    CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
+    
+    //Animation continuously repeating
+    [main_hero runAction:repeatingAnimation];
+    
+    //Adding the Sprite to the Scene
+    [self addChild:main_hero];
 
     // done
 	return self;
@@ -156,11 +140,15 @@
     CGPoint touchLoc = [touch locationInNode:self];
     
     // Log touch location
-    CCLOG(@"Move sprite to @ %@",NSStringFromCGPoint(touchLoc));
+    CCLOG(@"Touch @ %@",NSStringFromCGPoint(touchLoc));
+    
+//    if(touchLoc.x > self.contentSize.width/2) {
+//        CCLOG(@"Touch @ %@",NSStringFromCGPoint(touchLoc));
+//    }
+    
     
     // Move our sprite to touch location
-    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:1.0f position:touchLoc];
-    [_sprite runAction:actionMove];
+//    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:1.0f position:touchLoc];
 }
 
 // -----------------------------------------------------------------------

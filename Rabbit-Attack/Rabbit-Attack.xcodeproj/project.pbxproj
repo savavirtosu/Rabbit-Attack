@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6B7D6E1F191E220F00592CA9 /* main_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E1D191E220F00592CA9 /* main_background.png */; };
 		6B7D6E20191E220F00592CA9 /* main_hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E1E191E220F00592CA9 /* main_hero.png */; };
+		6B7D6E23191E3C0900592CA9 /* main_hero_old.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E21191E3C0900592CA9 /* main_hero_old.png */; };
+		6B7D6E24191E3C0900592CA9 /* main_hero.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E22191E3C0900592CA9 /* main_hero.plist */; };
 		6BCAE45E191E1340008B4D1B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAE45D191E1340008B4D1B /* QuartzCore.framework */; };
 		6BCAE460191E1340008B4D1B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAE45F191E1340008B4D1B /* OpenGLES.framework */; };
 		6BCAE462191E1340008B4D1B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAE461191E1340008B4D1B /* OpenAL.framework */; };
@@ -229,6 +231,8 @@
 /* Begin PBXFileReference section */
 		6B7D6E1D191E220F00592CA9 /* main_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background.png; sourceTree = "<group>"; };
 		6B7D6E1E191E220F00592CA9 /* main_hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_hero.png; sourceTree = "<group>"; };
+		6B7D6E21191E3C0900592CA9 /* main_hero_old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_hero_old.png; sourceTree = "<group>"; };
+		6B7D6E22191E3C0900592CA9 /* main_hero.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = main_hero.plist; sourceTree = "<group>"; };
 		6BCAE45A191E1340008B4D1B /* Rabbit-Attack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rabbit-Attack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCAE45D191E1340008B4D1B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6BCAE45F191E1340008B4D1B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -683,6 +687,8 @@
 		6B7D6E1C191E220F00592CA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6B7D6E21191E3C0900592CA9 /* main_hero_old.png */,
+				6B7D6E22191E3C0900592CA9 /* main_hero.plist */,
 				6B7D6E1D191E220F00592CA9 /* main_background.png */,
 				6B7D6E1E191E220F00592CA9 /* main_hero.png */,
 			);
@@ -1656,9 +1662,11 @@
 				6BCAE48B191E1340008B4D1B /* Icon-76@2x.png in Resources */,
 				6BCAE6FF191E1342008B4D1B /* LICENSE_Chipmunk.txt in Resources */,
 				6BCAE499191E1340008B4D1B /* Icon-Spotlight-iOS7@2x.png in Resources */,
+				6B7D6E23191E3C0900592CA9 /* main_hero_old.png in Resources */,
 				6BCAE489191E1340008B4D1B /* Icon-76.png in Resources */,
 				6BCAE65F191E1342008B4D1B /* ChangeLog in Resources */,
 				6BCAE49E191E1340008B4D1B /* iTunesArtwork@2x in Resources */,
+				6B7D6E24191E3C0900592CA9 /* main_hero.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
