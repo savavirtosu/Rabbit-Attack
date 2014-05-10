@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>389DAED4-5949-4BA3-BD29-8AB301D16F3B</string>
+	<string>67CB7575-6530-419E-8670-6162994A2F81</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Rabbit-Attack</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1B089F39-947D-49FB-AD23-D3CCE61B1E14</key>
+		<key>49F4E78C-E109-42DF-AFCE-A1C8B4A56589</key>
 		<string>https://github.com/savionok/Rabbit-Attack.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Rabbit-Attack/Rabbit-Attack.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1B089F39-947D-49FB-AD23-D3CCE61B1E14</key>
+		<key>49F4E78C-E109-42DF-AFCE-A1C8B4A56589</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1B089F39-947D-49FB-AD23-D3CCE61B1E14</string>
+	<string>49F4E78C-E109-42DF-AFCE-A1C8B4A56589</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1B089F39-947D-49FB-AD23-D3CCE61B1E14</string>
+			<string>49F4E78C-E109-42DF-AFCE-A1C8B4A56589</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Rabbit-Attack</string>
 		</dict>

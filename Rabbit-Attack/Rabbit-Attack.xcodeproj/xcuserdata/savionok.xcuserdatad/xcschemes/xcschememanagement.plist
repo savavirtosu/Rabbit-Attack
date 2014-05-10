@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ObjectiveChipmunk.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Rabbit-Attack.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6BFCB8A8191997560047BFE8</key>
+		<key>6BCAE459191E1340008B4D1B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6BFCB8D3191997570047BFE8</key>
+		<key>6BCAE470191E1340008B4D1B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
