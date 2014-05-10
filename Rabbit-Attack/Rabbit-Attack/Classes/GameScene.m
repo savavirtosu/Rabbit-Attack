@@ -10,6 +10,7 @@
 #import "GameScene.h"
 #import "IntroScene.h"
 #import "CCAnimation.h"
+#import "Enemy.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - GameScene
@@ -17,6 +18,8 @@
 //MACROS
 #define BACKGROUND_SPEED 0.01f
 #define ANIMATION_SPEED_MAIN_HERO 0.15f
+#define MAX_ENEMY_NUMBER 10
+#define ENEMY_GENERATION_SPEED 5
 
 
 
@@ -25,6 +28,7 @@
     CCSprite *main_hero;
     CCSprite *main_background_1;
     CCSprite *main_background_2;
+    NSMutableArray *enemyArray;
     
 }
 
@@ -61,14 +65,18 @@
     [self addChild:main_background_2];
     
     [self schedule:@selector(backgroundScroll:) interval:BACKGROUND_SPEED];
+    [self schedule:@selector(enemySpawner:) interval:ENEMY_GENERATION_SPEED];
     
     // Create a back button
     CCButton *backButton = [CCButton buttonWithTitle:@"[ Exit to Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
     backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(0.85f, 0.95f); // Top Right of screen
+    backButton.position = ccp(0.80f, 0.95f); // Top Right of screen
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
     
+    
+    //MAIN HERO
+    //***************************
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"main_hero.plist"];
     
@@ -97,6 +105,28 @@
     
     //Adding the Sprite to the Scene
     [self addChild:main_hero];
+    
+    //END MAIN HERO
+    //***************************
+    
+    
+    //ENEMY INIT
+    //***************************
+    enemyArray = [[NSMutableArray alloc] initWithCapacity:10];
+    
+    for(int i=0; i<MAX_ENEMY_NUMBER; i++){
+        Enemy *enemyInstance = [[Enemy alloc] initWithType:EnemyTypeAstro];
+        
+        [enemyArray addObject:enemyInstance];
+    }
+//
+//    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:5.0f position:ccp(-100,main_hero.position.y)];
+//    [[enemyArray objectAtIndex:0] runAction:actionMove];
+    
+    
+    
+    //END ENEMY
+    //***************************
 
     // done
 	return self;
@@ -179,6 +209,16 @@
         main_background_2.position = ccp(main_background_1.position.x+[main_background_1 boundingBox].size.width,main_background_2.position.y);
         CCLOG(@"Second Background Sprite");
     }
+}
+
+- (void)enemySpawner:(CCTime)dt{
+    CCLOG(@"Spawner @ %f",dt);
+//    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:5.0f position:ccp(-100,main_hero.position.y)];
+//    Enemy *enemy;
+//    enemy = [enemyArray objectAtIndex:0];
+//    enemy.position = ccp(self.contentSize.width+256,self.contentSize.height/2);
+//    [self addChild:enemy];
+//    [enemy runAction:actionMove];
 }
 
 // -----------------------------------------------------------------------

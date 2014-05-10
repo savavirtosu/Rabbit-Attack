@@ -217,6 +217,7 @@
 		6BCAE70A191E1342008B4D1B /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAE709191E1342008B4D1B /* GameScene.m */; };
 		6BCAE70D191E1342008B4D1B /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCAE70C191E1342008B4D1B /* IntroScene.m */; };
 		6BF85E70191E456900CFD475 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF85E6F191E456900CFD475 /* Enemy.m */; };
+		6BF85E72191E4A4D00CFD475 /* astro.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E71191E4A4D00CFD475 /* astro.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -664,6 +665,7 @@
 		6BCAE70C191E1342008B4D1B /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
 		6BF85E6E191E456900CFD475 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = Classes/Enemy.h; sourceTree = "<group>"; };
 		6BF85E6F191E456900CFD475 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Enemy.m; path = Classes/Enemy.m; sourceTree = "<group>"; };
+		6BF85E71191E4A4D00CFD475 /* astro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = astro.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -690,6 +692,7 @@
 		6B7D6E1C191E220F00592CA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6BF85E71191E4A4D00CFD475 /* astro.png */,
 				6B7D6E21191E3C0900592CA9 /* main_hero_old.png */,
 				6B7D6E22191E3C0900592CA9 /* main_hero.plist */,
 				6B7D6E1D191E220F00592CA9 /* main_background.png */,
@@ -1669,6 +1672,7 @@
 				6BCAE499191E1340008B4D1B /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				6B7D6E23191E3C0900592CA9 /* main_hero_old.png in Resources */,
 				6BCAE489191E1340008B4D1B /* Icon-76.png in Resources */,
+				6BF85E72191E4A4D00CFD475 /* astro.png in Resources */,
 				6BCAE65F191E1342008B4D1B /* ChangeLog in Resources */,
 				6BCAE49E191E1340008B4D1B /* iTunesArtwork@2x in Resources */,
 				6B7D6E24191E3C0900592CA9 /* main_hero.plist in Resources */,

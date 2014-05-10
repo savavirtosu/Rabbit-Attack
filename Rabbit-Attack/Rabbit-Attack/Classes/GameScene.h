@@ -24,6 +24,7 @@
 - (id)init;
 
 - (void)backgroundScroll:(CCTime)dt;
+- (void)enemySpawner:(CCTime)dt;
 
 // -----------------------------------------------------------------------
 @end
