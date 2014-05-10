@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B7D6E1B191E1C1700592CA9 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E1A191E1C1700592CA9 /* 2.png */; };
+		6B7D6E1F191E220F00592CA9 /* main_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E1D191E220F00592CA9 /* main_background.png */; };
+		6B7D6E20191E220F00592CA9 /* main_hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E1E191E220F00592CA9 /* main_hero.png */; };
 		6BCAE45E191E1340008B4D1B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAE45D191E1340008B4D1B /* QuartzCore.framework */; };
 		6BCAE460191E1340008B4D1B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAE45F191E1340008B4D1B /* OpenGLES.framework */; };
 		6BCAE462191E1340008B4D1B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAE461191E1340008B4D1B /* OpenAL.framework */; };
@@ -226,7 +227,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6B7D6E1A191E1C1700592CA9 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = Resources/2.png; sourceTree = "<group>"; };
+		6B7D6E1D191E220F00592CA9 /* main_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background.png; sourceTree = "<group>"; };
+		6B7D6E1E191E220F00592CA9 /* main_hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_hero.png; sourceTree = "<group>"; };
 		6BCAE45A191E1340008B4D1B /* Rabbit-Attack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rabbit-Attack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCAE45D191E1340008B4D1B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6BCAE45F191E1340008B4D1B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -678,6 +680,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B7D6E1C191E220F00592CA9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6B7D6E1D191E220F00592CA9 /* main_background.png */,
+				6B7D6E1E191E220F00592CA9 /* main_hero.png */,
+			);
+			name = Images;
+			path = Resources/Images;
+			sourceTree = "<group>";
+		};
 		6BCAE451191E1340008B4D1B = {
 			isa = PBXGroup;
 			children = (
@@ -726,7 +738,7 @@
 		6BCAE476191E1340008B4D1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6B7D6E1A191E1C1700592CA9 /* 2.png */,
+				6B7D6E1C191E220F00592CA9 /* Images */,
 				6BCAE477191E1340008B4D1B /* Default.png */,
 				6BCAE479191E1340008B4D1B /* Default@2x.png */,
 				6BCAE47B191E1340008B4D1B /* Default-568h@2x.png */,
@@ -1627,19 +1639,20 @@
 				6BCAE483191E1340008B4D1B /* Icon@2x.png in Resources */,
 				6BCAE495191E1340008B4D1B /* Icon-Small@2x.png in Resources */,
 				6BCAE487191E1340008B4D1B /* Icon-72@2x.png in Resources */,
+				6B7D6E20191E220F00592CA9 /* main_hero.png in Resources */,
 				6BCAE478191E1340008B4D1B /* Default.png in Resources */,
 				6BCAE481191E1340008B4D1B /* Icon.png in Resources */,
 				6BCAE48F191E1340008B4D1B /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				6BCAE47E191E1340008B4D1B /* Default-Landscape~ipad.png in Resources */,
 				6BCAE493191E1340008B4D1B /* Icon-Small.png in Resources */,
 				6BCAE491191E1340008B4D1B /* Icon-Small-50.png in Resources */,
-				6B7D6E1B191E1C1700592CA9 /* 2.png in Resources */,
 				6BCAE67A191E1342008B4D1B /* LICENSE_Kazmath.txt in Resources */,
 				6BCAE485191E1340008B4D1B /* Icon-72.png in Resources */,
 				6BCAE5D3191E1341008B4D1B /* LICENSE_cocos2d.txt in Resources */,
 				6BCAE47C191E1340008B4D1B /* Default-568h@2x.png in Resources */,
 				6BCAE49C191E1340008B4D1B /* iTunesArtwork in Resources */,
 				6BCAE497191E1340008B4D1B /* Icon-Spotlight-iOS7.png in Resources */,
+				6B7D6E1F191E220F00592CA9 /* main_background.png in Resources */,
 				6BCAE48B191E1340008B4D1B /* Icon-76@2x.png in Resources */,
 				6BCAE6FF191E1342008B4D1B /* LICENSE_Chipmunk.txt in Resources */,
 				6BCAE499191E1340008B4D1B /* Icon-Spotlight-iOS7@2x.png in Resources */,

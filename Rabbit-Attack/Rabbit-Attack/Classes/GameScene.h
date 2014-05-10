@@ -23,5 +23,7 @@
 + (GameScene *)scene;
 - (id)init;
 
+- (void)backgroundScroll:(CCTime)dt;
+
 // -----------------------------------------------------------------------
 @end
