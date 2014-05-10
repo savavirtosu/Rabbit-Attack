@@ -11,6 +11,7 @@
 #import "IntroScene.h"
 #import "CCAnimation.h"
 #import "Enemy.h"
+#import "Missile.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - GameScene
@@ -179,6 +180,12 @@
     
     if(touchLoc.x > self.contentSize.width/1.5f) {
         CCLOG(@"Touch Right Side @ %@",NSStringFromCGPoint(touchLoc));
+        Missile *missile = [[Missile alloc] initWithType:MissileTypeOne];
+        missile.position = ccp(main_hero.position.x,main_hero.position.y);
+        [self addChild:missile];
+        
+        [missile animate];
+        [missile move:main_hero.position.y ];
     }
     if(touchLoc.x <= self.contentSize.width/1.5f) {
         CCLOG(@"Touch Left Side @ %@",NSStringFromCGPoint(touchLoc));

@@ -20,5 +20,7 @@ typedef enum {
     
 }
 -(id)initWithType:(MissileType)type;
+-(void)animate;
+-(void)move:(float)targetPostion;
 
 @end
