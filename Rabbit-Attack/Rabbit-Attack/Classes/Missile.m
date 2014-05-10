@@ -8,6 +8,7 @@
 
 #import "Missile.h"
 #import "CCAction.h"
+#import "CCAnimation.h"
 
 
 @implementation Missile
@@ -47,6 +48,28 @@
         case MissileTypeTwo:
             //            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
 //            [self runAction:[CCActionRepeatForever actionWithAction:[CCActionRotateBy actionWithDuration:0.1 angle:10]]];
+            break;
+        case MissileTypeThree:
+        {
+            //            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
+            //            [self runAction:[CCActionRepeatForever actionWithAction:[CCActionRotateBy actionWithDuration:0.1 angle:10]]];
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"main_hero.plist"];
+            
+            //The sprite animation
+            NSMutableArray *flyAnimFrames = [NSMutableArray array];
+            for(int i = 3; i <= 4; ++i)
+            {
+                [flyAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"missile%d.png", i]]];
+            }
+            CCAnimation *missileAnim = [CCAnimation animationWithSpriteFrames:flyAnimFrames delay:0.2f]; //Speed in which the frames will go at
+            
+            //Repeating the sprite animation
+            CCActionAnimate *animationAction = [CCActionAnimate actionWithAnimation:missileAnim];
+            CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
+            
+            //Animation continuously repeating
+            [self runAction:repeatingAnimation];
+        }
             break;
             
         default:
