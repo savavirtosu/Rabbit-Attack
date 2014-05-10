@@ -17,8 +17,8 @@
     
     switch (type) {
         case EnemyTypeMeteor:
-//            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
-            self = (Enemy *) [super initWithImageNamed:@"astro.png"];
+//            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"meteor.png"];
+            self = (Enemy *) [super initWithImageNamed:@"meteor.png"];
             break;
         case EnemyTypeAstro:
 //            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
@@ -34,6 +34,7 @@
     self.scale = 0.125;
     self.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, self.contentSize} cornerRadius:0]; // 1
     self.physicsBody.collisionGroup = @"enemyGroup"; // 2
+    self.physicsBody.collisionType = @"enemyCollision"; // 2
     
     return self;
 }
@@ -42,7 +43,7 @@
     switch (enemyType) {
         case EnemyTypeMeteor:
             //            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
-            [self runAction:[CCActionRepeatForever actionWithAction:[CCActionRotateBy actionWithDuration:0.1 angle:10]]];
+            [self runAction:[CCActionRepeatForever actionWithAction:[CCActionRotateBy actionWithDuration:0.3 angle:10]]];
             break;
         case EnemyTypeAstro:
             //            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];

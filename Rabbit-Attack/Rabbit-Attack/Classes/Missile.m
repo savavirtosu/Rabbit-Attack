@@ -37,7 +37,8 @@
     self.scale = 0.125;
     
     self.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, self.contentSize} cornerRadius:0]; // 1
-    self.physicsBody.collisionGroup = @"enemyGroup"; // 2
+    self.physicsBody.collisionGroup = @"missileGroup"; // 2
+    self.physicsBody.collisionType = @"missileCollision"; // 2
     
     return self;
 }
@@ -83,7 +84,27 @@
 }
 
 -(void) move:(float)yPostion {
-    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:3.0f position:ccp(500,yPostion)];
+    actionMove = [CCActionMoveTo actionWithDuration:3.0f position:ccp(1000,yPostion)];
     [self runAction:actionMove];
+}
+-(void) explode {
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"explosion.plist"];
+    
+    //The sprite animation
+    NSMutableArray *flyAnimFrames = [NSMutableArray array];
+    for(int i = 1; i <= 8; ++i)
+    {
+        [flyAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"explosion%d.png", i]]];
+    }
+    CCAnimation *missileAnim = [CCAnimation animationWithSpriteFrames:flyAnimFrames delay:0.1f]; //Speed in which the frames will go at
+    
+    //Repeating the sprite animation
+    CCActionAnimate *animationAction = [CCActionAnimate actionWithAnimation:missileAnim];
+    CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
+    
+    //Animation continuously repeating
+    [self stopAction:actionMove];
+    [self runAction:repeatingAnimation];
+    
 }
 @end

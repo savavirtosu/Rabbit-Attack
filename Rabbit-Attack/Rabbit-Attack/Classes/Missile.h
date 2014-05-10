@@ -17,10 +17,11 @@ typedef enum {
 
 @interface Missile : CCSprite {
     MissileType missileType;
-    
+    CCActionMoveTo *actionMove;
 }
 -(id)initWithType:(MissileType)type;
 -(void)animate;
 -(void)move:(float)targetPostion;
+-(void)explode;
 
 @end

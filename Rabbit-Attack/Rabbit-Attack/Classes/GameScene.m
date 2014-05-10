@@ -20,7 +20,7 @@
 #define BACKGROUND_SPEED 0.01f
 #define ANIMATION_SPEED_MAIN_HERO 0.15f
 #define ANIMATION_SPEED_BOSS 0.25f
-#define MAX_ENEMY_NUMBER 15
+#define MAX_ENEMY_NUMBER 13
 #define ENEMY_GENERATION_SPEED 5
 
 
@@ -29,6 +29,7 @@
 {
     CCSprite *main_hero;
     CCSprite *boss_hero;
+    CCSprite *current_enemy;
     CCSprite *main_background_1;
     CCSprite *main_background_2;
     CCPhysicsNode *_physicsWorld;
@@ -139,7 +140,7 @@
     enemyArray = [[NSMutableArray alloc] initWithCapacity:10];
     
     for(int i=0; i<MAX_ENEMY_NUMBER; i++){
-        Enemy *enemyInstance = [[Enemy alloc] initWithType:EnemyTypeAstro];
+        Enemy *enemyInstance = [[Enemy alloc] initWithType:(arc4random() % 2)];
         
         [enemyArray addObject:enemyInstance];
     }
@@ -156,49 +157,7 @@
     
     
     
-    //BOSS HERO
-    //***************************
     
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dstar.plist"];
-    
-    //The sprite animation
-    NSMutableArray *fly2AnimFrames = [NSMutableArray array];
-    for(int i = 1; i <= 5; ++i)
-    {
-        [fly2AnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"dstar%d.png", i]]];
-    }
-    for(int i = 4; i > 1; --i)
-    {
-        [fly2AnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"dstar%d.png", i]]];
-    }
-    CCAnimation *walk2Anim = [CCAnimation
-                             animationWithSpriteFrames:fly2AnimFrames delay:ANIMATION_SPEED_BOSS]; //Speed in which the frames will go at
-    
-    //Adding png to sprite
-    boss_hero = [CCSprite spriteWithImageNamed:@"dstar1.png"];
-    
-    //Positioning the sprite
-    boss_hero.position  = ccp(self.contentSize.width/1.3,self.contentSize.height/2);
-    boss_hero.scale = 0.25;
-    
-    //Repeating the sprite animation
-    CCActionAnimate *animationAction2 = [CCActionAnimate actionWithAnimation:walk2Anim];
-    CCActionRepeatForever *repeatingAnimation2 = [CCActionRepeatForever actionWithAction:animationAction2];
-    
-    boss_hero.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, boss_hero.contentSize} cornerRadius:0]; // 1
-    boss_hero.physicsBody.collisionGroup = @"bossGroup"; // 2
-    [_physicsWorld addChild:boss_hero];
-    //Adding the Sprite to the Scene
-    //    [self addChild:main_hero];
-    //Animation continuously repeating
-    [boss_hero runAction:repeatingAnimation2];
-    
-    
-    
-    //END BOSS HERO
-    //***************************
-    
-
     // done
 	return self;
 }
@@ -233,6 +192,17 @@
     [super onExit];
 }
 
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair enemyCollision:(Enemy *)enemy missileCollision:(Missile *)missile {
+    
+    [missile explode];
+    
+    [enemy removeFromParent];
+//    [missile removeFromParent];
+    
+    return NO;
+
+}
+
 // -----------------------------------------------------------------------
 #pragma mark - Touch Handler
 // -----------------------------------------------------------------------
@@ -249,7 +219,7 @@
         last_time_click = CACurrentMediaTime();
         if(touchLoc.x > self.contentSize.width/1.5f) {
             CCLOG(@"Touch Right Side @ %@",NSStringFromCGPoint(touchLoc));
-            Missile *missile = [[Missile alloc] initWithType:MissileTypeThree];
+            Missile *missile = [[Missile alloc] initWithType:(arc4random() % 3)];
             missile.position = ccp(main_hero.position.x,main_hero.position.y);
 //            [self addChild:missile];
             [_physicsWorld addChild:missile];
@@ -300,21 +270,84 @@
 - (void)enemySpawner:(CCTime)dt{
     CCLOG(@"Spawner @ %f",dt);
     CCLOG(@"Enemy @ %i",enemy_number);
-//    Enemy *new_enemy;
-//    new_enemy = [enemyArray objectAtIndex:enemy_number];
-//    new_enemy.position = ccp(self.contentSize.width+300,self.contentSize.height/2);
-////    [self addChild:new_enemy];
-//    [_physicsWorld addChild:new_enemy];
-//
-//    [new_enemy animate];
-//    [new_enemy move:main_hero.position.y ];
-//    
-//    
-//    
-//    enemy_number++;
-//    if(enemy_number >= MAX_ENEMY_NUMBER) {
-//        enemy_number = 0;
-//    }
+    if(enemy_number <= MAX_ENEMY_NUMBER/2) {
+        Enemy *new_enemy;
+        new_enemy = [enemyArray objectAtIndex:enemy_number];
+        new_enemy.position = ccp(self.contentSize.width+300,self.contentSize.height/2);
+    //    [self addChild:new_enemy];
+        [_physicsWorld addChild:new_enemy];
+
+        [new_enemy animate];
+        [new_enemy move:main_hero.position.y ];
+        enemy_number++;
+    }else if (enemy_number < MAX_ENEMY_NUMBER-1) {
+        Enemy *new_enemy;
+        new_enemy = [enemyArray objectAtIndex:enemy_number];
+        new_enemy.position = ccp(self.contentSize.width+300,self.contentSize.height/2);
+        //    [self addChild:new_enemy];
+        [_physicsWorld addChild:new_enemy];
+        
+        [new_enemy animate];
+        [new_enemy move:main_hero.position.y ];
+        enemy_number++;
+        
+        new_enemy = [enemyArray objectAtIndex:enemy_number];
+        new_enemy.position = ccp(self.contentSize.width+500,self.contentSize.height/3);
+        //    [self addChild:new_enemy];
+        [_physicsWorld addChild:new_enemy];
+        
+        [new_enemy animate];
+        [new_enemy move:main_hero.position.y ];
+        enemy_number++;
+        
+    }
+    else if (enemy_number <= MAX_ENEMY_NUMBER) {
+        
+        //BOSS HERO
+        //***************************
+        
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dstar.plist"];
+        
+        //The sprite animation
+        NSMutableArray *fly2AnimFrames = [NSMutableArray array];
+        for(int i = 1; i <= 5; ++i)
+        {
+            [fly2AnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"dstar%d.png", i]]];
+        }
+        for(int i = 4; i > 1; --i)
+        {
+            [fly2AnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"dstar%d.png", i]]];
+        }
+        CCAnimation *walk2Anim = [CCAnimation
+                                  animationWithSpriteFrames:fly2AnimFrames delay:ANIMATION_SPEED_BOSS]; //Speed in which the frames will go at
+        
+        //Adding png to sprite
+        boss_hero = [CCSprite spriteWithImageNamed:@"dstar1.png"];
+        
+        //Positioning the sprite
+        boss_hero.position  = ccp(self.contentSize.width/1.3,self.contentSize.height/2);
+        boss_hero.scale = 0.25;
+        
+        //Repeating the sprite animation
+        CCActionAnimate *animationAction2 = [CCActionAnimate actionWithAnimation:walk2Anim];
+        CCActionRepeatForever *repeatingAnimation2 = [CCActionRepeatForever actionWithAction:animationAction2];
+        
+        boss_hero.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect){CGPointZero, boss_hero.contentSize} cornerRadius:0]; // 1
+        boss_hero.physicsBody.collisionGroup = @"bossGroup"; // 2
+        [_physicsWorld addChild:boss_hero];
+        //Adding the Sprite to the Scene
+        //    [self addChild:main_hero];
+        //Animation continuously repeating
+        [boss_hero runAction:repeatingAnimation2];
+        
+        
+        //END BOSS HERO
+        //***************************
+        enemy_number++;
+        
+
+        
+    }
 }
 
 // -----------------------------------------------------------------------

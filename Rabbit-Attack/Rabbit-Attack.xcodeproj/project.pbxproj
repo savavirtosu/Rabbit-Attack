@@ -225,6 +225,9 @@
 		6BF85E7F191E839C00CFD475 /* dstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E7D191E839C00CFD475 /* dstar.png */; };
 		6BF85E82191E87B900CFD475 /* main_background_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E80191E87B900CFD475 /* main_background_1.png */; };
 		6BF85E83191E87B900CFD475 /* main_background_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E81191E87B900CFD475 /* main_background_2.png */; };
+		6BF85E87191E9BA500CFD475 /* meteor.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E84191E9BA500CFD475 /* meteor.png */; };
+		6BF85E88191E9BA500CFD475 /* explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E85191E9BA500CFD475 /* explosion.plist */; };
+		6BF85E89191E9BA500CFD475 /* explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BF85E86191E9BA500CFD475 /* explosion.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -681,6 +684,9 @@
 		6BF85E7D191E839C00CFD475 /* dstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dstar.png; sourceTree = "<group>"; };
 		6BF85E80191E87B900CFD475 /* main_background_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background_1.png; sourceTree = "<group>"; };
 		6BF85E81191E87B900CFD475 /* main_background_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background_2.png; sourceTree = "<group>"; };
+		6BF85E84191E9BA500CFD475 /* meteor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meteor.png; sourceTree = "<group>"; };
+		6BF85E85191E9BA500CFD475 /* explosion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = explosion.plist; sourceTree = "<group>"; };
+		6BF85E86191E9BA500CFD475 /* explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -707,6 +713,9 @@
 		6B7D6E1C191E220F00592CA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6BF85E84191E9BA500CFD475 /* meteor.png */,
+				6BF85E85191E9BA500CFD475 /* explosion.plist */,
+				6BF85E86191E9BA500CFD475 /* explosion.png */,
 				6BF85E80191E87B900CFD475 /* main_background_1.png */,
 				6BF85E81191E87B900CFD475 /* main_background_2.png */,
 				6BF85E7C191E839C00CFD475 /* dstar.plist */,
@@ -1670,6 +1679,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BF85E88191E9BA500CFD475 /* explosion.plist in Resources */,
 				6BCAE47A191E1340008B4D1B /* Default@2x.png in Resources */,
 				6BCAE48D191E1340008B4D1B /* Icon-120.png in Resources */,
 				6BCAE691191E1342008B4D1B /* LICENSE_CCBReader.txt in Resources */,
@@ -1688,11 +1698,13 @@
 				6BCAE491191E1340008B4D1B /* Icon-Small-50.png in Resources */,
 				6BCAE67A191E1342008B4D1B /* LICENSE_Kazmath.txt in Resources */,
 				6BCAE485191E1340008B4D1B /* Icon-72.png in Resources */,
+				6BF85E87191E9BA500CFD475 /* meteor.png in Resources */,
 				6BCAE5D3191E1341008B4D1B /* LICENSE_cocos2d.txt in Resources */,
 				6BF85E7E191E839C00CFD475 /* dstar.plist in Resources */,
 				6BCAE47C191E1340008B4D1B /* Default-568h@2x.png in Resources */,
 				6BCAE49C191E1340008B4D1B /* iTunesArtwork in Resources */,
 				6BCAE497191E1340008B4D1B /* Icon-Spotlight-iOS7.png in Resources */,
+				6BF85E89191E9BA500CFD475 /* explosion.png in Resources */,
 				6BCAE48B191E1340008B4D1B /* Icon-76@2x.png in Resources */,
 				6BF85E83191E87B900CFD475 /* main_background_2.png in Resources */,
 				6BF85E82191E87B900CFD475 /* main_background_1.png in Resources */,
