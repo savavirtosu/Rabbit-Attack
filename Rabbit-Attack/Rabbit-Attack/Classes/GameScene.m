@@ -31,6 +31,7 @@
     CCSprite *main_background_2;
     NSMutableArray *enemyArray;
     int enemy_number;
+    float last_time_click;
     
 }
 
@@ -52,6 +53,7 @@
     if (!self) return(nil);
     
     enemy_number = 0;
+    last_time_click = 0.0f;
     
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
@@ -175,23 +177,31 @@
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint touchLoc = [touch locationInNode:self];
     
-    // Log touch location
-//    CCLOG(@"Touch @ %@",NSStringFromCGPoint(touchLoc));
+    double current_time = CACurrentMediaTime();
+    float delta_click_time = current_time - last_time_click;
+
     
-    if(touchLoc.x > self.contentSize.width/1.5f) {
-        CCLOG(@"Touch Right Side @ %@",NSStringFromCGPoint(touchLoc));
-        Missile *missile = [[Missile alloc] initWithType:MissileTypeThree];
-        missile.position = ccp(main_hero.position.x,main_hero.position.y);
-        [self addChild:missile];
+    if(delta_click_time > 0.45f)
+    {
+        last_time_click = CACurrentMediaTime();
+        if(touchLoc.x > self.contentSize.width/1.5f) {
+            CCLOG(@"Touch Right Side @ %@",NSStringFromCGPoint(touchLoc));
+            Missile *missile = [[Missile alloc] initWithType:MissileTypeThree];
+            missile.position = ccp(main_hero.position.x,main_hero.position.y);
+            [self addChild:missile];
+            
+            [missile animate];
+            [missile move:main_hero.position.y ];
+        }
+        if(touchLoc.x <= self.contentSize.width/1.5f) {
+            CCLOG(@"Touch Left Side @ %@",NSStringFromCGPoint(touchLoc));
+            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.8f position:touchLoc];
+            [main_hero runAction:actionMove];
+        }
+
         
-        [missile animate];
-        [missile move:main_hero.position.y ];
     }
-    if(touchLoc.x <= self.contentSize.width/1.5f) {
-        CCLOG(@"Touch Left Side @ %@",NSStringFromCGPoint(touchLoc));
-        CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.8f position:touchLoc];
-        [main_hero runAction:actionMove];
-    }
+    
     
     
     // Move our sprite to touch location
