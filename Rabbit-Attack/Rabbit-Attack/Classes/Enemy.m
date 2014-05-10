@@ -13,19 +13,24 @@
 
 -(id) initWithType:(EnemyType)type {
 
-    self.scale = 0.25;
+    
     
     switch (type) {
         case EnemyTypeMeteor:
-            self.spriteFrame = [CCSprite spriteWithImageNamed:@"astro.png"];
+//            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
+            self = (Enemy *) [super initWithImageNamed:@"astro.png"];
             break;
         case EnemyTypeAstro:
-            self.spriteFrame = [CCSprite spriteWithImageNamed:@"astro.png"];
+//            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
+            self = (Enemy *) [super initWithImageNamed:@"astro.png"];
             break;
             
         default:
             break;
     }
+    
+    self.scale = 0.125;
+    
     return self;
 }
 

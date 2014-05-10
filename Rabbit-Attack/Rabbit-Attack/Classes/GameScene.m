@@ -29,6 +29,7 @@
     CCSprite *main_background_1;
     CCSprite *main_background_2;
     NSMutableArray *enemyArray;
+    int enemy_number;
     
 }
 
@@ -48,6 +49,8 @@
     // Apple recommend assigning self with supers return value
     self = [super init];
     if (!self) return(nil);
+    
+    enemy_number = 0;
     
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
@@ -81,13 +84,13 @@
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"main_hero.plist"];
     
     //The sprite animation
-    NSMutableArray *walkAnimFrames = [NSMutableArray array];
+    NSMutableArray *flyAnimFrames = [NSMutableArray array];
     for(int i = 1; i <= 4; ++i)
     {
-        [walkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"%d.png", i]]];
+        [flyAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"%d.png", i]]];
     }
     CCAnimation *walkAnim = [CCAnimation
-                             animationWithSpriteFrames:walkAnimFrames delay:ANIMATION_SPEED_MAIN_HERO]; //Speed in which the frames will go at
+                             animationWithSpriteFrames:flyAnimFrames delay:ANIMATION_SPEED_MAIN_HERO]; //Speed in which the frames will go at
     
     //Adding png to sprite
     main_hero = [CCSprite spriteWithImageNamed:@"1.png"];
@@ -119,6 +122,8 @@
         
         [enemyArray addObject:enemyInstance];
     }
+    Enemy *new_enemy;
+    new_enemy = [enemyArray objectAtIndex:enemy_number];
 //
 //    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:5.0f position:ccp(-100,main_hero.position.y)];
 //    [[enemyArray objectAtIndex:0] runAction:actionMove];
@@ -177,7 +182,7 @@
     }
     if(touchLoc.x <= self.contentSize.width/1.5f) {
         CCLOG(@"Touch Left Side @ %@",NSStringFromCGPoint(touchLoc));
-        CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:1.0f position:touchLoc];
+        CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.8f position:touchLoc];
         [main_hero runAction:actionMove];
     }
     
@@ -213,12 +218,18 @@
 
 - (void)enemySpawner:(CCTime)dt{
     CCLOG(@"Spawner @ %f",dt);
-//    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:5.0f position:ccp(-100,main_hero.position.y)];
-//    Enemy *enemy;
-//    enemy = [enemyArray objectAtIndex:0];
-//    enemy.position = ccp(self.contentSize.width+256,self.contentSize.height/2);
-//    [self addChild:enemy];
-//    [enemy runAction:actionMove];
+    CCLOG(@"Enemy @ %i",enemy_number);
+    CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:5.0f position:ccp(-100,main_hero.position.y)];
+    Enemy *new_enemy;
+    new_enemy = [enemyArray objectAtIndex:enemy_number];
+    new_enemy.position = ccp(self.contentSize.width+300,self.contentSize.height/2);
+    [self addChild:new_enemy];
+    [new_enemy runAction:actionMove];
+    
+    enemy_number++;
+    if(enemy_number >= MAX_ENEMY_NUMBER) {
+        enemy_number = 0;
+    }
 }
 
 // -----------------------------------------------------------------------
