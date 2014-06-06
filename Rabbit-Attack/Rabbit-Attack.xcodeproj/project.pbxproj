@@ -10,6 +10,7 @@
 		6B7D6E20191E220F00592CA9 /* main_hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E1E191E220F00592CA9 /* main_hero.png */; };
 		6B7D6E23191E3C0900592CA9 /* main_hero_old.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E21191E3C0900592CA9 /* main_hero_old.png */; };
 		6B7D6E24191E3C0900592CA9 /* main_hero.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D6E22191E3C0900592CA9 /* main_hero.plist */; };
+		6BAD6BA319279A140075387D /* EnemyBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAD6BA219279A140075387D /* EnemyBoss.m */; };
 		6BCAE45E191E1340008B4D1B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAE45D191E1340008B4D1B /* QuartzCore.framework */; };
 		6BCAE460191E1340008B4D1B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAE45F191E1340008B4D1B /* OpenGLES.framework */; };
 		6BCAE462191E1340008B4D1B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCAE461191E1340008B4D1B /* OpenAL.framework */; };
@@ -244,6 +245,8 @@
 		6B7D6E1E191E220F00592CA9 /* main_hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_hero.png; sourceTree = "<group>"; };
 		6B7D6E21191E3C0900592CA9 /* main_hero_old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_hero_old.png; sourceTree = "<group>"; };
 		6B7D6E22191E3C0900592CA9 /* main_hero.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = main_hero.plist; sourceTree = "<group>"; };
+		6BAD6BA119279A140075387D /* EnemyBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyBoss.h; path = Classes/EnemyBoss.h; sourceTree = "<group>"; };
+		6BAD6BA219279A140075387D /* EnemyBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnemyBoss.m; path = Classes/EnemyBoss.m; sourceTree = "<group>"; };
 		6BCAE45A191E1340008B4D1B /* Rabbit-Attack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rabbit-Attack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BCAE45D191E1340008B4D1B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6BCAE45F191E1340008B4D1B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1607,6 +1610,8 @@
 				6BF85E6F191E456900CFD475 /* Enemy.m */,
 				6BF85E73191E625B00CFD475 /* Missile.h */,
 				6BF85E74191E625B00CFD475 /* Missile.m */,
+				6BAD6BA119279A140075387D /* EnemyBoss.h */,
+				6BAD6BA219279A140075387D /* EnemyBoss.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1864,6 +1869,7 @@
 				6BCAE538191E1341008B4D1B /* CCScene.m in Sources */,
 				6BCAE566191E1341008B4D1B /* CCTexture.m in Sources */,
 				6BCAE5F8191E1342008B4D1B /* ALCaptureDevice.m in Sources */,
+				6BAD6BA319279A140075387D /* EnemyBoss.m in Sources */,
 				6BCAE534191E1341008B4D1B /* CCResponderManager.m in Sources */,
 				6BCAE4CC191E1341008B4D1B /* CCConfiguration.m in Sources */,
 				6BCAE60F191E1342008B4D1B /* ALWrapper.m in Sources */,

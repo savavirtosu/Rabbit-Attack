@@ -21,5 +21,7 @@ typedef enum {
 -(id)initWithType:(EnemyType)type;
 -(void)animate;
 -(void)move:(float)targetPostion;
+-(void)die;
+-(void)explosionAnimation;
 
 @end

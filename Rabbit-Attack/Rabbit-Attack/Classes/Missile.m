@@ -16,7 +16,6 @@
 -(id) initWithType:(MissileType)type {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"missiles.plist"];
     
-    
     switch (type) {
         case MissileTypeOne:
             //            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
@@ -57,7 +56,6 @@
         {
             //            self.spriteFrame = [CCSpriteFrame frameWithImageNamed: @"astro.png"];
             //            [self runAction:[CCActionRepeatForever actionWithAction:[CCActionRotateBy actionWithDuration:0.1 angle:10]]];
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"main_hero.plist"];
             
             //The sprite animation
             NSMutableArray *flyAnimFrames = [NSMutableArray array];
@@ -97,14 +95,15 @@
         [flyAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName: [NSString stringWithFormat:@"explosion%d.png", i]]];
     }
     CCAnimation *missileAnim = [CCAnimation animationWithSpriteFrames:flyAnimFrames delay:0.1f]; //Speed in which the frames will go at
+//    C *remove = [CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)];
     
     //Repeating the sprite animation
     CCActionAnimate *animationAction = [CCActionAnimate actionWithAnimation:missileAnim];
-    CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
+//    CCActionRepeatForever *repeatingAnimation = [CCActionRepeatForever actionWithAction:animationAction];
     
     //Animation continuously repeating
-    [self stopAction:actionMove];
-    [self runAction:repeatingAnimation];
+//    [self stopAction:actionMove];
+    [self runAction:animationAction];
     
 }
 @end
